@@ -20,14 +20,14 @@ terraform {
     #   version = "~> 3.3"
     # }
   }
-  # Adding Backend as S3 for Remote State Storage
-  backend "s3" {
-    bucket = "terraform-on-aws-eks-amora"
-    key    = "dev/ebs-storage/terraform.tfstate"
-    region = "us-east-1" 
+  # # Adding Backend as S3 for Remote State Storage
+  # backend "s3" {
+  #   bucket = "terraform-on-aws-eks-amora"
+  #   key    = "dev/ebs-storage/terraform.tfstate"
+  #   region = "us-east-1" 
 
-    encrypt = true 
-  }     
+  #   encrypt = true 
+  # }     
 }
 
 # Terraform AWS Provider Block
