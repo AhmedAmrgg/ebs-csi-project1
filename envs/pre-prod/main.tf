@@ -21,7 +21,7 @@ module Network {
   vpc_cidr_block = var.vpc_cidr_block
   vpc_availability_zones = var.vpc_availability_zones  # ✅
   subnet_ids = module.Network.public_subnets
-  cluster_token    = data.aws_eks_cluster_auth.eks_cluster.token
+
   
 }
  
@@ -42,4 +42,5 @@ module ebs-terraform {
   cluster_name     = module.EKS.cluster_name
   cluster_endpoint = module.EKS.cluster_endpoint
   cluster_ca       = module.EKS.cluster_ca
+  cluster_token    = data.aws_eks_cluster_auth.eks_cluster.token
 }
