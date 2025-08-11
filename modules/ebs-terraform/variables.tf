@@ -32,3 +32,7 @@ variable "cluster_endpoint" {
 variable "cluster_ca" {
   type = string
 }
+
+variable "cluster_token" {
+  type = string
+}

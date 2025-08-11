@@ -21,7 +21,7 @@ module Network {
   vpc_cidr_block = var.vpc_cidr_block
   vpc_availability_zones = var.vpc_availability_zones  # ✅
   subnet_ids = module.Network.public_subnets
-
+  cluster_token    = data.aws_eks_cluster_auth.eks_cluster.token
   
 }
  
