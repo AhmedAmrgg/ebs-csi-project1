@@ -46,6 +46,6 @@ module "ebs-terraform" {
   cluster_endpoint = module.EKS.cluster_endpoint
   cluster_ca       = module.EKS.cluster_ca
   cluster_token    = data.aws_eks_cluster_auth.eks_cluster.token.
-  
-  depends_on = [module.EKS]
+  cluster_id = module.EKS.cluster_id
+  # depends_on = [module.EKS]
 }
