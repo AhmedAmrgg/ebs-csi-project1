@@ -29,11 +29,39 @@
     
 # }
 
+# resource "helm_release" "ebs_csi_driver" {
+#   name       = "aws-ebs-csi-driver"
+#   repository = "https://kubernetes-sigs.github.io/aws-ebs-csi-driver"
+#   chart      = "aws-ebs-csi-driver"
+#   namespace  = "kube-system"
+
+#   set = [
+#     {
+#       name  = "controller.serviceAccount.create"
+#       value = "false"
+#     },
+#     {
+#       name  = "controller.serviceAccount.name"
+#       value = "ebs-csi-controller-sa"
+#     },
+#     {
+#       name  = "enableVolumeResizing"
+#       value = "true"
+#     },
+#     {
+#       name  = "enableVolumeSnapshot"
+#       value = "true"
+#     }
+#   ]
+# }
+
+
 resource "helm_release" "ebs_csi_driver" {
   name       = "aws-ebs-csi-driver"
   repository = "https://kubernetes-sigs.github.io/aws-ebs-csi-driver"
   chart      = "aws-ebs-csi-driver"
   namespace  = "kube-system"
+  version    = "2.27.0" # أو أي نسخة مناسبة
 
   set = [
     {
@@ -43,14 +71,6 @@ resource "helm_release" "ebs_csi_driver" {
     {
       name  = "controller.serviceAccount.name"
       value = "ebs-csi-controller-sa"
-    },
-    {
-      name  = "enableVolumeResizing"
-      value = "true"
-    },
-    {
-      name  = "enableVolumeSnapshot"
-      value = "true"
     }
   ]
 }

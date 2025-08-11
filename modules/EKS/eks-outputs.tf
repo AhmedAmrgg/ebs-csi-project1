@@ -98,3 +98,12 @@ output "cluster_name" {
 output "cluster_ca" {
   value = aws_eks_cluster.eks_cluster.certificate_authority[0].data
 }
+
+
+output "aws_iam_openid_connect_provider_arn" {
+  value = aws_iam_openid_connect_provider.this.arn
+}
+
+output "aws_iam_openid_connect_provider_extract_from_arn" {
+  value = aws_iam_openid_connect_provider.this.url
+}
