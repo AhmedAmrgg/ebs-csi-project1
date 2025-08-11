@@ -38,7 +38,7 @@ data "aws_eks_cluster_auth" "eks_cluster" {
   name = module.EKS.cluster_name
 }
 
-module ebs-terraform {
+module "ebs-terraform" {
   source = "../../modules/ebs-terraform"
  
 
