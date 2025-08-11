@@ -17,3 +17,7 @@ variable "business_divsion" {
   type = string
   default = "SAP"
 }
+
+  variable "cluster_name" {
+  type = string
+}
