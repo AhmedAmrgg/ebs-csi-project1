@@ -17,10 +17,10 @@ resource "aws_iam_openid_connect_provider" "oidc_provider" {
 }
 
 # Output: AWS IAM Open ID Connect Provider ARN
-# output "aws_iam_openid_connect_provider_arn" {
-#   description = "AWS IAM Open ID Connect Provider ARN"
-#   value = aws_iam_openid_connect_provider.oidc_provider.arn 
-# }
+output "aws_iam_openid_connect_provider_arn" {
+  description = "AWS IAM Open ID Connect Provider ARN"
+  value = aws_iam_openid_connect_provider.oidc_provider.arn 
+}
 
 # Extract OIDC Provider from OIDC Provider ARN
 locals {
@@ -38,3 +38,11 @@ locals {
 aws_iam_openid_connect_provider_arn = "arn:aws:iam::180789647333:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/A9DED4A4FA341C2A5D985A260650F232"
 aws_iam_openid_connect_provider_extract_from_arn = "oidc.eks.us-east-1.amazonaws.com/id/A9DED4A4FA341C2A5D985A260650F232"
 */
+
+# resource "aws_iam_openid_connect_provider" "this" {
+#   url = aws_eks_cluster.eks.identity[0].oidc[0].issuer
+
+#   client_id_list = ["sts.amazonaws.com"]
+
+#   thumbprint_list = ["9e99a48a9960b14926bb7f3b02e22da0afd10df6"]
+# }

@@ -100,10 +100,10 @@ output "cluster_ca" {
 }
 
 
-output "aws_iam_openid_connect_provider_arn" {
-  value = aws_iam_openid_connect_provider.this.arn
-}
+# output "aws_iam_openid_connect_provider_arn" {
+#   value = aws_iam_openid_connect_provider.this.arn
+# }
 
 output "aws_iam_openid_connect_provider_extract_from_arn" {
-  value = aws_iam_openid_connect_provider.this.url
+  value = aws_iam_openid_connect_provider.oidc_provider.url
 }
