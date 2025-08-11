@@ -39,6 +39,7 @@ module ebs-terraform {
   source = "../../modules/ebs-terraform"
  
 
-  cluster_name = module.EKS.cluster_name
-
+  cluster_name     = module.EKS.cluster_name
+  cluster_endpoint = module.EKS.cluster_endpoint
+  cluster_ca       = module.EKS.cluster_ca
 }

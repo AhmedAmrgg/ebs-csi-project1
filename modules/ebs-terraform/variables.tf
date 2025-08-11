@@ -18,6 +18,17 @@ variable "business_divsion" {
   default = "SAP"
 }
 
-  variable "cluster_name" {
+#   variable "cluster_name" {
+#   type = string
+# }
+
+# modules/ebs-terraform/variables.tf
+variable "cluster_name" {
+  type = string
+}
+variable "cluster_endpoint" {
+  type = string
+}
+variable "cluster_ca" {
   type = string
 }

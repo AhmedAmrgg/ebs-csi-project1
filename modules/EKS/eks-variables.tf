@@ -43,16 +43,12 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
+# modules/EKS/variables.tf
 variable "private_subnets" {
-  description = "List of private subnet IDs"
-  type        = list(string)
-  default     = []
+  type = list(string)
 }
-
 variable "public_subnets" {
-  description = "List of public subnet IDs"
-  type        = list(string)
-  default     = []
+  type = list(string)
 }
 
 
