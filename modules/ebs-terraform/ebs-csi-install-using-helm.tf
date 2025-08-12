@@ -2,7 +2,7 @@
 # Resource: Helm Release 
 resource "helm_release" "ebs_csi_driver" {
   depends_on = [aws_iam_role.ebs_csi_iam_role]
-  name       = "aws-ebs-csi-driver"
+  name       = "aws-ebs-csi-driver-v"
   repository = "https://kubernetes-sigs.github.io/aws-ebs-csi-driver"
   chart      = "aws-ebs-csi-driver"
   namespace = "kube-system"     
