@@ -27,12 +27,9 @@ module "Network" {
  
 
 
-module "sampleapp" {
-  source = "../../modules/sampleapp"
-
-
-
-}
+# module "sampleapp" {
+#   source = "../../modules/sampleapp"
+# }
  
 # data "aws_eks_cluster_auth" "eks_cluster" {
 #   name = module.EKS.cluster_name
