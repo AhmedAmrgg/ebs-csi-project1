@@ -13,17 +13,17 @@ module "EKS" {
  
 
 
-module "Network" {
-  source = "../../modules/Network"
+# module "Network" {
+#   source = "../../modules/Network"
 
 
   
-  vpc_cidr_block = var.vpc_cidr_block
-  vpc_availability_zones = var.vpc_availability_zones  # ✅
-  subnet_ids = module.Network.public_subnets
+#   vpc_cidr_block = var.vpc_cidr_block
+#   vpc_availability_zones = var.vpc_availability_zones  # ✅
+#   subnet_ids = module.Network.public_subnets
 
   
-}
+# }
  
 
 
