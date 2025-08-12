@@ -1,29 +1,29 @@
 
-# module "EKS" {
-#   source = "../../modules/EKS"
+module "EKS" {
+  source = "../../modules/EKS"
  
-#   environment = var.environment
-#   cluster_name = var.cluster_name
-#   aws_region = var.aws_region
-#   subnet_ids   = module.Network.public_subnets # ✅ الحل هنا
-#   private_subnets = module.Network.private_subnets
-#   public_subnets  = module.Network.public_subnets
+  environment = var.environment
+  cluster_name = var.cluster_name
+  aws_region = var.aws_region
+  subnet_ids   = module.Network.public_subnets # ✅ الحل هنا
+  private_subnets = module.Network.private_subnets
+  public_subnets  = module.Network.public_subnets
   
-# }
+}
  
 
 
-# module "Network" {
-#   source = "../../modules/Network"
+module "Network" {
+  source = "../../modules/Network"
 
 
   
-#   vpc_cidr_block = var.vpc_cidr_block
-#   vpc_availability_zones = var.vpc_availability_zones  # ✅
-#   subnet_ids = module.Network.public_subnets
+  vpc_cidr_block = var.vpc_cidr_block
+  vpc_availability_zones = var.vpc_availability_zones  # ✅
+  subnet_ids = module.Network.public_subnets
 
   
-# }
+}
  
 
 
@@ -31,20 +31,20 @@
 #   source = "../../modules/sampleapp"
 # }
  
-# # data "aws_eks_cluster_auth" "eks_cluster" {
-# #   name = module.EKS.cluster_name
-# # }
-
-# module "ebs-terraform" {
-#   source = "../../modules/ebs-terraform"
- 
-#   aws_region = var.aws_region
-#   cluster_name     = module.EKS.cluster_name
-#   cluster_endpoint = module.EKS.cluster_endpoint
-#   cluster_ca       = module.EKS.cluster_ca
-#   cluster_token    = data.aws_eks_cluster_auth.eks_cluster.token
-#   # cluster_id = module.EKS.cluster_id
-#   oidc_provider_arn = module.EKS.oidc_provider_arn
-#   oidc_provider_url = module.EKS.oidc_provider_url
-#   depends_on = [module.EKS]
+# data "aws_eks_cluster_auth" "eks_cluster" {
+#   name = module.EKS.cluster_name
 # }
+
+module "ebs-terraform" {
+  source = "../../modules/ebs-terraform"
+ 
+  aws_region = var.aws_region
+  cluster_name     = module.EKS.cluster_name
+  cluster_endpoint = module.EKS.cluster_endpoint
+  cluster_ca       = module.EKS.cluster_ca
+  cluster_token    = data.aws_eks_cluster_auth.eks_cluster.token
+  # cluster_id = module.EKS.cluster_id
+  oidc_provider_arn = module.EKS.oidc_provider_arn
+  oidc_provider_url = module.EKS.oidc_provider_url
+  depends_on = [module.EKS]
+}
