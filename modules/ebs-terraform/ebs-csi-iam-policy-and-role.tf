@@ -27,11 +27,12 @@ resource "aws_iam_role" "ebs_csi_iam_role" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Federated = "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_arn}"
+          Federated = var.oidc_provider_arn
+          # "${aws_eks_cluster.eks_cluster.aws_iam_openid_connect_provider_arn}"
         }
         Condition = {
-          StringEquals = {            
-            "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn}:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
+          StringEquals = {  "${replace(var.oidc_provider_url, "https://", "")}:sub" = "system:serviceaccount:kube-system:ebs-csi-controller-sa"        
+            # "${aws_eks_cluster.eks_cluster.aws_iam_openid_connect_provider_extract_from_arn}:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
           }
         }        
 
