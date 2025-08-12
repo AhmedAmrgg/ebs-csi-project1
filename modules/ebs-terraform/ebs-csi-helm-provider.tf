@@ -1,9 +1,9 @@
 data "aws_eks_cluster" "eks_cluster" {
-  name = module.EKS.cluster_name
+  name = var.cluster_name
 }
 
 data "aws_eks_cluster_auth" "eks_cluster" {
-  name = module.EKS.cluster_name
+  name = var.cluster_name
 }
 
 provider "helm" {
