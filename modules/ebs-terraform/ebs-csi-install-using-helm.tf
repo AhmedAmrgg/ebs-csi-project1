@@ -1,5 +1,5 @@
-Install EBS CSI Driver using HELM
-Resource: Helm Release 
+# Install EBS CSI Driver using HELM
+# Resource: Helm Release 
 resource "helm_release" "ebs_csi_driver" {
   depends_on = [aws_iam_role.ebs_csi_iam_role]
   name       = "aws-ebs-csi-driver"
