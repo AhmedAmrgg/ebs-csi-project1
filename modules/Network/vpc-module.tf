@@ -10,7 +10,7 @@ module "vpc" {
   # VPC Basic Details
   vpc_name = var.vpc_name
   vpc_cidr_block = var.vpc_cidr_block
-  azsvpc_availability_zones             = var.vpc_availability_zones
+  vpc_availability_zones             = var.vpc_availability_zones
   public_subnets  = var.vpc_public_subnets
   private_subnets = var.vpc_private_subnets  
 
