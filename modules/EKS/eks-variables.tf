@@ -37,19 +37,26 @@ variable "cluster_endpoint_public_access_cidrs" {
 # EKS Node Group Variables
 ## Placeholder space you can create if required
 
-
 variable "subnet_ids" {
   description = "List of subnet IDs to attach the EKS nodes / control plane"
   type        = list(string)
 }
 
-# modules/EKS/variables.tf
 variable "private_subnets" {
   type = list(string)
 }
+
 variable "public_subnets" {
   type = list(string)
 }
+
+variable "node_group_name" {
+  description = "Name of the EKS private node group"
+  type        = string
+  default     = null
+}
+
+
 
 
 

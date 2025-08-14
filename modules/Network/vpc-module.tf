@@ -1,19 +1,16 @@
 # AWS Availability Zones Datasource
-data "aws_availability_zones" "available" {
-}
+# data "aws_availability_zones" "available" {
+# }
 
 # Create VPC Terraform Module
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  #version = "3.11.0"
-  #version = "~> 3.11"
-  #version = "4.0.1"  
+  source  = "terraform-aws-modules/vpc/aws"  
   version = "5.4.0"  
   
   # VPC Basic Details
-  name = local.eks_cluster_name
+  name = var.cluster_name
   cidr = var.vpc_cidr_block
-  azs             = data.aws_availability_zones.available.names
+  azs             = var.vpc_availability_zones
   public_subnets  = var.vpc_public_subnets
   private_subnets = var.vpc_private_subnets  
 
@@ -21,8 +18,7 @@ module "vpc" {
   database_subnets = var.vpc_database_subnets
   create_database_subnet_group = var.vpc_create_database_subnet_group
   create_database_subnet_route_table = var.vpc_create_database_subnet_route_table
-  # create_database_internet_gateway_route = true
-  # create_database_nat_gateway_route = true
+
   
   # NAT Gateways - Outbound Communication
   enable_nat_gateway = var.vpc_enable_nat_gateway 
@@ -33,19 +29,19 @@ module "vpc" {
   enable_dns_support   = true
 
   
-  tags = local.common_tags
-  vpc_tags = local.common_tags
+  tags = var.business_divsion
+  vpc_tags = var.business_divsion
 
   # Additional Tags to Subnets
   public_subnet_tags = {
     Type = "Public Subnets"
     "kubernetes.io/role/elb" = 1    
-    "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared"        
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"        
   }
   private_subnet_tags = {
     Type = "private-subnets"
     "kubernetes.io/role/internal-elb" = 1    
-    "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared"    
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"    
   }
 
   database_subnet_tags = {

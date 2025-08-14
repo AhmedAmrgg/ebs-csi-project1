@@ -3,12 +3,12 @@
 resource "aws_eks_node_group" "eks_ng_private" {
   cluster_name    = aws_eks_cluster.eks_cluster.name
 
-  node_group_name = "${local.name}-eks-ng-private"
+  node_group_name = var.node_group_name
   node_role_arn   = aws_iam_role.eks_nodegroup_role.arn
   subnet_ids = var.private_subnets
 
   #version = var.cluster_version #(Optional: Defaults to EKS Cluster Kubernetes version)    
-  
+  # change to var
   ami_type = "AL2023_x86_64_STANDARD"
   capacity_type = "ON_DEMAND"
   disk_size = 20
