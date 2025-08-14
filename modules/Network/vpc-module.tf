@@ -8,9 +8,9 @@ module "vpc" {
   version = "5.4.0"  
   
   # VPC Basic Details
-  vpc_name = var.vpc_name
-  vpc_cidr_block = var.vpc_cidr_block
-  vpc_availability_zones             = var.vpc_availability_zones
+  name = var.vpc_name
+  cidr_block = var.vpc_cidr_block
+  availability_zones             = var.vpc_availability_zones
   public_subnets  = var.vpc_public_subnets
   private_subnets = var.vpc_private_subnets  
 
