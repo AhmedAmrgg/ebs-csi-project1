@@ -21,11 +21,8 @@ variable "environment" {
 # Business Division
 variable "business_divsion" {
   description = "Business Division in the large organization this Infrastructure belongs"
-  type = map(string)
-  default = {
-    Owner   = "SAP"
-    Project = "EKS"
-  }
+  type = string
+  default = "SAP"
 }
 
 
