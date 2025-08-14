@@ -18,9 +18,16 @@ module "Network" {
 
 
   
-  vpc_cidr_block = var.vpc_cidr_block
-  vpc_availability_zones = var.vpc_availability_zones  # ✅
-  # subnet_ids = module.Network.public_subnets
+  # vpc_cidr_block = var.vpc_cidr_block
+  # vpc_availability_zones = var.vpc_availability_zones  # ✅
+  name = var.vpc_name
+  cidr = var.vpc_cidr_block
+  azs             = var.vpc_availability_zones
+  public_subnets  = var.vpc_public_subnets
+  private_subnets = var.vpc_private_subnets 
+  vpc_create_database_subnet_group      = true
+  vpc_create_database_subnet_route_table = true
+  
 
   
 }
