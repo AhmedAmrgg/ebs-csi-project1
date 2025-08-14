@@ -8,7 +8,7 @@ variable "vpc_name" {
 }
 
 # VPC CIDR Block
-variable "vpc_cidr_block" {
+variable "cidr_block" {
   description = "VPC CIDR Block"
   type = string 
 #  default = "10.0.0.0/16"
