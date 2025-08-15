@@ -29,9 +29,9 @@ module "Network" {
 #   source = "../../modules/sampleapp"
 # }
  
-data "aws_eks_cluster_auth" "eks_cluster" {
-  name = module.EKS.cluster_name
-}
+# data "aws_eks_cluster_auth" "eks_cluster" {
+#   name = module.EKS.cluster_name
+# }
 
 module "ebs-terraform" {
   source = "../../modules/ebs-terraform"
