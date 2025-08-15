@@ -40,6 +40,5 @@ module "ebs-terraform" {
   # cluster_id = module.EKS.cluster_id
   oidc_provider_arn = module.EKS.oidc_provider_arn
   oidc_provider_url = module.EKS.oidc_provider_url
-  # depends_on = [module.EKS]
-  depends_on = [aws_eks_cluster.eksdemo] #
+  depends_on = [module.EKS]
 }
