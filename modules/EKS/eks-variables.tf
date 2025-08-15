@@ -65,6 +65,3 @@ variable "eks_oidc_root_ca_thumbprint" {
  
 
 
-variable "cluster_dependency" {}
-
-
