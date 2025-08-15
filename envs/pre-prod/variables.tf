@@ -143,6 +143,9 @@ variable "vpc_single_nat_gateway" {
   default = true
 }
 
+variable "cluster_dependency" {}
+
+
 
 
 
