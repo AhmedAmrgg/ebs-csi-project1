@@ -43,12 +43,12 @@ module "ebs-terraform" {
   # depends_on = [module.EKS]
 }
  
-# module alb {
-#   source = "../../modules/alb"
+module alb {
+  source = "../../modules/alb"
 
-#   depends_on = [module.EKS]
+  depends_on = [module.EKS]
 
 
 
-# }
+}
 
