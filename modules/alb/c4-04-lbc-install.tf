@@ -35,7 +35,7 @@ resource "helm_release" "loadbalancer_controller" {
 
   {
     name  = "vpcId"
-    value = "${data.terraform_remote_state.eks.outputs.vpc_id}"
+    value = module.Network.vpc_id
   },
 
   {
@@ -45,7 +45,7 @@ resource "helm_release" "loadbalancer_controller" {
 
   {
     name  = "clusterName"
-    value = "${data.terraform_remote_state.eks.outputs.cluster_id}"
+    value = "module.EKS.cluster_name"
   }    
 ] 
 }

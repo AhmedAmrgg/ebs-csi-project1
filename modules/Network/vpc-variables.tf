@@ -78,13 +78,6 @@ variable "cluster_name" {
   default     = "eksdemo"
 }
 
-# # Business Division
-# variable "business_divsion" {
-#   description = "Business Division in the large organization this Infrastructure belongs"
-#   type = string
-#   default = "SAP"
-# }
-
 variable "business_divsion" {
   description = "Common tags for resources"
   type        = map(string)
