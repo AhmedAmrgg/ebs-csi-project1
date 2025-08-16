@@ -32,3 +32,6 @@ variable "oidc_provider_url" {
   type = string
 }
  
+variable vpc_id {
+  type        = string
+}

@@ -35,7 +35,7 @@ resource "helm_release" "loadbalancer_controller" {
 
   {
     name  = "vpcId"
-    value = module.vpc.vpc_id
+    value = "${var.vpc_id}"
   },
 
   {
@@ -45,7 +45,7 @@ resource "helm_release" "loadbalancer_controller" {
 
   {
     name  = "clusterName"
-    value = "module.EKS.cluster_name"
+    value = "${var.cluster_name}"
   }    
 ] 
 }
