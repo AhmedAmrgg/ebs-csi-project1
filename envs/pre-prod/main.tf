@@ -43,7 +43,7 @@ module "ebs-terraform" {
   # depends_on = [module.EKS]
 }
  
-module alb {
+module "alb" {
   source = "../../modules/alb"
 
 #   depends_on = [module.EKS]
@@ -55,7 +55,7 @@ module alb {
   oidc_provider_arn = module.EKS.oidc_provider_arn
   oidc_provider_url = module.EKS.oidc_provider_url
   # depends_on = [module.EKS]
-
+  vpc_id = module.Network.vpc_id
 
 }
 
