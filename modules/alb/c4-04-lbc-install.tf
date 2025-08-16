@@ -35,7 +35,7 @@ resource "helm_release" "loadbalancer_controller" {
 
   {
     name  = "vpcId"
-    value = module.Network.vpc_id
+    value = module.vpc.vpc_id
   },
 
   {
