@@ -12,7 +12,6 @@ resource "aws_iam_openid_connect_provider" "oidc_provider" {
     {
       Name = "${var.cluster_name}-eks-irsa"
     },
-    # local.common_tags
   )
 }
 
